@@ -1,198 +1,227 @@
 export interface Project {
   id: number;
   title: string;
-  category: 'Motion Design' | 'Graphic Design' | 'Illustration' | 'Branding' | 'UI Design' | 'Web Design';
+  category: 'Architecture' | 'Furniture';
   year: string;
   coverImage: string;
   images: string[];
   description: string;
-  tools: string[];
+  tools: string[]; // Used here to list Materials
   client: string;
-  links?: {
-    behance?: string;
-    live?: string;
-    dribbble?: string;
-  };
+  location?: string;
+  dimensions?: string;
+}
+
+export interface Material {
+  name: string;
+  category: string;
+  description: string;
+  image: string;
+  color: string;
+}
+
+export interface Hotspot {
+  id: number;
+  x: string;
+  y: string;
+  title: string;
+  product: string;
+  description: string;
 }
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'Neon Dreams',
-    category: 'Motion Design',
-    year: '2024',
-    coverImage: 'https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Villa Plaster & Light',
+    category: 'Architecture',
+    year: '2025',
+    location: 'Almere, Netherlands',
+    coverImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1916824/pexels-photo-1916824.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/2519160/pexels-photo-2519160.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=compress&cs=tinysrgb&w=1200',
     ],
-    description: 'A mesmerizing exploration of light and motion, capturing the essence of urban nightlife through dynamic animations and vibrant color palettes. This project pushes the boundaries of visual storytelling.',
-    tools: ['After Effects', 'Cinema 4D', 'Premiere Pro'],
-    client: 'Nightlife Studios',
-    links: {
-      behance: 'https://behance.net',
-    },
+    description: 'A brutalist plaster residence built in Almere, Netherlands. The structure is carved out to choreograph the moving path of daylight, creating deep shadow-plays and moments of intense spatial clarity throughout the seasons.',
+    tools: ['Chalk Plaster', 'Douglas Fir', 'Polished Concrete', 'Triple Glazing'],
+    client: 'Private Residence',
   },
   {
     id: 2,
-    title: 'Botanica Brand Identity',
-    category: 'Branding',
+    title: 'The Veluwe Pavilion',
+    category: 'Architecture',
     year: '2024',
-    coverImage: 'https://images.pexels.com/photos/1632770/pexels-photo-1632770.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Veluwe, Netherlands',
+    coverImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/1632770/pexels-photo-1632770.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=compress&cs=tinysrgb&w=1200',
     ],
-    description: 'Complete brand identity system for an organic wellness company, featuring a nature-inspired color palette, custom typography, and a comprehensive design system that spans digital and print.',
-    tools: ['Illustrator', 'Photoshop', 'Figma'],
-    client: 'Botanica Wellness',
-    links: {
-      dribbble: 'https://dribbble.com',
-    },
+    description: 'A structural steel and low-iron glass woodland sanctuary nestled in the forests of Gelderland. Designed to completely merge indoor and outdoor spaces, with sliding glass walls that disappear entirely into timber wall-pockets.',
+    tools: ['Structural Steel', 'Larch Wood Cladding', 'Low-E Glazing', 'Basalt Stone'],
+    client: 'Van Der Berg Family',
   },
   {
     id: 3,
-    title: 'CryptoFlow Dashboard',
-    category: 'UI Design',
+    title: 'Brutalist Monolith',
+    category: 'Architecture',
     year: '2023',
-    coverImage: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800',
+    location: 'Rotterdam, Netherlands',
+    coverImage: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/videos/3643565/pexels-photo-3643565.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=compress&cs=tinysrgb&w=1200',
     ],
-    description: 'A comprehensive cryptocurrency trading dashboard with real-time data visualization, portfolio management, and intuitive navigation designed for both beginners and advanced traders.',
-    tools: ['Figma', 'Principle', 'After Effects'],
-    client: 'CryptoFlow Inc',
-    links: {
-      live: 'https://dribbble.com',
-    },
+    description: 'A cast-in-place concrete house in Rotterdam that celebrates material honesty and simple geometrical volumes. The raw texture of the board-marked concrete defines both exterior facades and interior partitions.',
+    tools: ['Board-Marked Concrete', 'Raw Black Steel', 'Volcanic Stone', 'Brushed Oak'],
+    client: 'Rotterdam City Dev',
   },
   {
     id: 4,
-    title: 'Abstract Dimensions',
-    category: 'Illustration',
-    year: '2023',
-    coverImage: 'https://images.pexels.com/photos/1910251/pexels-photo-1910251.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Dune Cabin',
+    category: 'Architecture',
+    year: '2024',
+    location: 'Texel, Netherlands',
+    coverImage: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/1910251/pexels-photo-1910251.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/11113179/pexels-photo-11113179.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=compress&cs=tinysrgb&w=1200',
     ],
-    description: 'A collection of dimensional illustrations exploring the intersection of geometry and emotion, created for a large-scale public art installation that spans 200 meters of gallery space.',
-    tools: ['Procreate', 'Photoshop', 'Blender'],
-    client: 'Modern Art Gallery',
-    links: {
-      behance: 'https://behance.net',
-    },
+    description: 'An eco-friendly holiday cabin on the island of Texel, sculpted into the sandy slopes. Its dynamic pitch roof and untreated larch timber cladding will age into a beautiful silver-grey hue, blending into the dunes.',
+    tools: ['Timber Framing', 'Untreated Larch Cladding', 'Clay Plaster', 'Solar Mesh'],
+    client: 'Texel EcoTrust',
   },
   {
     id: 5,
-    title: 'Pulse Music Festival',
-    category: 'Graphic Design',
-    year: '2024',
-    coverImage: 'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'HUIS Lounge Chair',
+    category: 'Furniture',
+    year: '2025',
+    dimensions: '78 x 82 x 70 cm',
+    coverImage: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=compress&cs=tinysrgb&w=1200',
     ],
-    description: 'Full visual identity and campaign for an electronic music festival, including posters, social media assets, environmental graphics, and motion content that captured the energy of the event.',
-    tools: ['Photoshop', 'Illustrator', 'After Effects'],
-    client: 'Pulse Events',
-    links: {
-      dribbble: 'https://dribbble.com',
-    },
+    description: 'A low-profile, ergonomic lounge chair highlighting traditional wood joinery. Built from solid smoked European oak and upholstered in custom-woven raw linen, it offers a deep tactile sit and enduring geometry.',
+    tools: ['Smoked Oak', 'Woven Flax Linen', 'Brass Dowels'],
+    client: 'Bespoke Collection',
   },
   {
     id: 6,
-    title: 'Luxe E-commerce',
-    category: 'Web Design',
-    year: '2023',
-    coverImage: 'https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Travertine Plinth Table',
+    category: 'Furniture',
+    year: '2024',
+    dimensions: '120 x 120 x 28 cm',
+    coverImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/4226896/pexels-photo-4226896.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=compress&cs=tinysrgb&w=1200',
     ],
-    description: 'A premium e-commerce experience for a luxury fashion brand, featuring immersive product presentations, personalized recommendations, and a seamless checkout flow.',
-    tools: ['Figma', 'Framer', 'Webflow'],
-    client: 'LUXE Fashion',
-    links: {
-      live: 'https://webflow.com',
-    },
+    description: 'Carved from unfilled Italian travertine marble, this low coffee table system features clean mitred edges and hollow volumes, expressing stone as massive yet floatable monolith blocks.',
+    tools: ['Travertine Marble', 'Matte Silicate Sealer'],
+    client: 'Gallery H',
   },
   {
     id: 7,
-    title: 'Kinetic Typography',
-    category: 'Motion Design',
+    title: 'Smoked Oak Credenza',
+    category: 'Furniture',
     year: '2024',
-    coverImage: 'https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=800',
+    dimensions: '220 x 48 x 65 cm',
+    coverImage: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=compress&cs=tinysrgb&w=1200',
     ],
-    description: 'Experimental typography animation exploring the relationship between movement and meaning, featuring 26 unique letter animations that flow seamlessly into one another.',
-    tools: ['After Effects', 'Cavalry', 'Processing'],
-    client: 'Type Foundry',
-    links: {
-      behance: 'https://behance.net',
-    },
+    description: 'A floating wall-mounted sideboard designed with sliding slatted oak panels. Hidden touch-latches, internal LED illumination, and raw brass sliding tracks combine industrial precision with organic warmth.',
+    tools: ['Smoked Oak', 'Raw Brass Tracks', 'LED Diffusers'],
+    client: 'Private Collector',
   },
   {
     id: 8,
-    title: 'Eco App Design',
-    category: 'UI Design',
-    year: '2024',
-    coverImage: 'https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'The Monolith Dining Table',
+    category: 'Furniture',
+    year: '2023',
+    dimensions: '300 x 100 x 75 cm',
+    coverImage: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=compress&cs=tinysrgb&w=800',
     images: [
-      'https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1072178/pexels-photo-1072178.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=compress&cs=tinysrgb&w=1200',
+      'https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=compress&cs=tinysrgb&w=1200',
     ],
-    description: 'A sustainability tracking app that gamifies eco-friendly habits, featuring vibrant illustrations, achievement systems, and social features to motivate users towards a greener lifestyle.',
-    tools: ['Figma', 'Rive', 'Principle'],
-    client: 'GreenTech Solutions',
-    links: {
-      dribbble: 'https://dribbble.com',
-    },
+    description: 'A 3-meter dining table featuring a hand-applied microcement table top and massive solid oak legs. Built to endure, the cement surface is polished with organic beeswax for a highly tactile, matte finish.',
+    tools: ['Microcement Finish', 'Solid Ash Wood', 'Beeswax Finish'],
+    client: 'Amsterdam Residence',
   },
 ];
 
-export const skills = [
-  { name: 'After Effects', color: '#9999FF' },
-  { name: 'Illustrator', color: '#FF9A00' },
-  { name: 'Photoshop', color: '#31A8FF' },
-  { name: 'Cinema 4D', color: '#0B5577' },
-  { name: 'Blender', color: '#EA7600' },
-  { name: 'Figma', color: '#F24E1E' },
-  { name: 'Rive', color: '#FF3366' },
-  { name: 'Spline', color: '#8B5CF6' },
-  { name: 'Webflow', color: '#4353FF' },
-  { name: 'Framer', color: '#05F' },
+export const materials: Material[] = [
+  {
+    name: 'Travertine Marble',
+    category: 'Stone',
+    description: 'Unfilled, honed Italian travertine that adds a warm, pitted texture and organic weight.',
+    image: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=compress&cs=tinysrgb&w=400',
+    color: '#E5C39E',
+  },
+  {
+    name: 'European Smoked Oak',
+    category: 'Wood',
+    description: 'Deep, dark wood with a beautiful prominent grain, smoked to highlight its natural tanins.',
+    image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=compress&cs=tinysrgb&w=400',
+    color: '#3A3026',
+  },
+  {
+    name: 'Chalk Plaster',
+    category: 'Finish',
+    description: 'A natural gypsum and lime plaster finish that breathes and reflects light softly.',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=compress&cs=tinysrgb&w=400',
+    color: '#F6F4F0',
+  },
+  {
+    name: 'Raw Brass',
+    category: 'Metal',
+    description: 'Untreated brass hardware that will naturally oxidize over time, telling a story of contact and age.',
+    image: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=compress&cs=tinysrgb&w=400',
+    color: '#C5A059',
+  },
+  {
+    name: 'Hand-woven Linen',
+    category: 'Fabric',
+    description: 'Coarse Belgian linen in organic flax tones, offering a tactile, breathable surface for upholstery.',
+    image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=compress&cs=tinysrgb&w=400',
+    color: '#D9D3C4',
+  },
 ];
 
-export const categories = ['All', 'Motion', 'Graphic', 'Illustration', 'Branding', 'Web', 'UI'];
+export const hotspots: Hotspot[] = [
+  {
+    id: 1,
+    x: '32%',
+    y: '58%',
+    title: 'The Lounge Chair',
+    product: 'HUIS Lounge Chair',
+    description: 'Solid smoked oak legs and natural flax linen cushions, detailed with exposed mortise joints.',
+  },
+  {
+    id: 2,
+    x: '55%',
+    y: '78%',
+    title: 'The Plinth Table',
+    product: 'Travertine Plinth',
+    description: 'Crafted from a single block of Italian travertine stone, raw and unfilled to show natural ages.',
+  },
+  {
+    id: 3,
+    x: '75%',
+    y: '48%',
+    title: 'The Storage Panel',
+    product: 'Oak Credenza',
+    description: 'Wall-mounted unit with fine timber slats that slide to reveal organic lighting elements.',
+  },
+];
+
+export const categories = ['All', 'Architecture', 'Furniture'];
 
 export const socialLinks = [
-  { name: 'Email', icon: 'Mail', url: 'mailto:hello@alexdesign.com', color: '#FF6B6B' },
-  { name: 'Behance', icon: 'MonitorPlay', url: 'https://behance.net', color: '#1769FF' },
-  { name: 'Instagram', icon: 'Instagram', url: 'https://instagram.com', color: '#E4405F' },
-  { name: 'LinkedIn', icon: 'Linkedin', url: 'https://linkedin.com', color: '#0A66C2' },
-  { name: 'Dribbble', icon: 'Dribbble', url: 'https://dribbble.com', color: '#EA4C89' },
-];
-
-export const funFacts = [
-  { emoji: '☕', label: 'Coffee addict', description: '5 cups daily' },
-  { emoji: '🚴', label: 'Cycling lover', description: '100km/week' },
-  { emoji: '🎵', label: 'Music explorer', description: 'All genres' },
-  { emoji: '🌍', label: 'Loves traveling', description: '30+ countries' },
-  { emoji: '🎨', label: 'DIY creator', description: 'Always crafting' },
-];
-
-export const stickers = [
-  { id: 1, shape: 'star', color: '#FFE66D', size: 60, rotation: 15, x: '10%', y: '20%' },
-  { id: 2, shape: 'circle', color: '#FF6B6B', size: 80, rotation: -10, x: '80%', y: '30%' },
-  { id: 3, shape: 'triangle', color: '#4ECDC4', size: 50, rotation: 25, x: '15%', y: '70%' },
-  { id: 4, shape: 'square', color: '#9B5DE5', size: 40, rotation: -5, x: '75%', y: '80%' },
-  { id: 5, shape: 'cross', color: '#00F5D4', size: 55, rotation: 10, x: '50%', y: '50%' },
-];
-
-export const floatingIcons = [
-  '✦', '◆', '●', '▲', '■', '★', '☆', '♦', '○', '△', '□', '◇',
+  { name: 'Instagram', icon: 'Instagram', url: 'https://instagram.com', color: '#1C1C1C' },
+  { name: 'Pinterest', icon: 'Pinterest', url: 'https://pinterest.com', color: '#1C1C1C' },
+  { name: 'LinkedIn', icon: 'Linkedin', url: 'https://linkedin.com', color: '#1C1C1C' },
 ];

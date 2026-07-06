@@ -61,6 +61,8 @@ export function CustomCursor() {
   }, []);
 
   if (isMobile) return null;
+  // Default cursor is used; custom cursor is disabled.
+  return null;
 
   return (
     <>
@@ -110,20 +112,21 @@ export function CustomCursor() {
 
       {/* Cursor trail */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-[9998] opacity-20"
+        className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-[9998]"
         style={{
-          background: 'linear-gradient(135deg, #FF6B6B, #4ECDC4)',
+          background: 'rgba(178, 94, 75, 0.15)',
+          border: '1px solid rgba(178, 94, 75, 0.3)',
           x: cursorX,
           y: cursorY,
         }}
         animate={{
-          scale: isHovering ? 3 : 1,
-          opacity: isVisible ? 0.2 : 0,
+          scale: isHovering ? 2.5 : 1,
+          opacity: isVisible ? 1 : 0,
         }}
         transition={{
           type: 'spring',
           damping: 30,
-          stiffness: 200,
+          stiffness: 180,
           mass: 1,
         }}
       >

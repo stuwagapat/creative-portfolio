@@ -5,21 +5,30 @@
 :root {
   --cursor-size: 20px;
   --cursor-scale: 1;
-  --color-coral: #FF6B6B;
-  --color-electric: #4ECDC4;
-  --color-sunny: #FFE66D;
-  --color-rose: #FF8ED4;
-  --color-mint: #00F5D4;
-  --color-lavender: #9B5DE5;
-  --color-peach: #F9A8D4;
-  --color-sky: #00BBF9;
-  --accent-1: var(--color-coral);
-  --accent-2: var(--color-electric);
-  --accent-3: var(--color-sunny);
+  --color-plaster: #F6F4F0;
+  --color-obsidian: #1C1C1C;
+  --color-terracotta: #B25E4B;
+  --color-sage: #7D8A74;
+  --color-sand: #D5A779;
+  --color-slate: #9AA7A9;
+
+  /* Fallback color names for compatibility */
+  --color-coral: var(--color-terracotta);
+  --color-electric: var(--color-sage);
+  --color-sunny: var(--color-sand);
+  --color-rose: var(--color-slate);
+  --color-mint: var(--color-plaster);
+  --color-lavender: var(--color-obsidian);
+  --color-peach: var(--color-sand);
+  --color-sky: var(--color-slate);
+
+  --accent-1: var(--color-terracotta);
+  --accent-2: var(--color-sage);
+  --accent-3: var(--color-sand);
 }
 
 * {
-  cursor: none !important;
+  /* cursor: default is now used */
 }
 
 html {
@@ -29,15 +38,15 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: #fafafa;
-  color: #171717;
+  background-color: var(--color-plaster);
+  color: var(--color-obsidian);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--color-coral);
+  background: var(--color-terracotta);
   color: white;
 }
 
@@ -274,7 +283,7 @@ body.modal-open {
   }
 
   * {
-    cursor: auto !important;
+    /* cursor is auto on all devices */
   }
 }
 
@@ -362,3 +371,49 @@ body.modal-open {
 .animate-pulse-soft {
   animation: pulse-soft 2s ease-in-out infinite;
 }
+
+/* Custom marquee animation */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Bento card styling */
+.bento-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(28, 28, 28, 0.08);
+  border-radius: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(28, 28, 28, 0.08);
+  border-color: rgba(28, 28, 28, 0.15);
+}
+
+.bento-card-dark {
+  background-color: var(--color-obsidian);
+  color: var(--color-plaster);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.border-plaster {
+  border-color: rgba(28, 28, 28, 0.08);
+}
+

@@ -20,18 +20,19 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           }, 200);
           return 100;
         }
-        return prev + Math.random() * 15 + 5;
+        return prev + Math.random() * 20 + 8;
       });
-    }, 100);
+    }, 80);
 
     return () => clearInterval(interval);
   }, [onLoadComplete]);
 
+  // Terracotta, Sage, Sand, Slate colors
   const shapes = [
-    { color: '#FF6B6B', size: 120, x: '15%', y: '30%', delay: 0 },
-    { color: '#4ECDC4', size: 80, x: '80%', y: '20%', delay: 0.1 },
-    { color: '#FFE66D', size: 60, x: '70%', y: '70%', delay: 0.2 },
-    { color: '#9B5DE5', size: 100, x: '25%', y: '75%', delay: 0.15 },
+    { color: '#B25E4B', size: 140, x: '12%', y: '25%', delay: 0 },
+    { color: '#7D8A74', size: 100, x: '82%', y: '18%', delay: 0.1 },
+    { color: '#D5A779', size: 80, x: '72%', y: '72%', delay: 0.2 },
+    { color: '#9AA7A9', size: 120, x: '22%', y: '78%', delay: 0.15 },
   ];
 
   return (
@@ -39,15 +40,15 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
       {!isComplete && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.1 }}
-          transition={{ duration: 0.6, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-neutral-50"
+          exit={{ opacity: 0, scale: 1.05 }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#F6F4F0]"
         >
           {/* Background shapes */}
           {shapes.map((shape, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full opacity-30 blur-2xl"
+              className="absolute rounded-full opacity-20 blur-3xl"
               style={{
                 backgroundColor: shape.color,
                 width: shape.size,
@@ -56,11 +57,11 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
                 top: shape.y,
               }}
               animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
+                scale: [1, 1.25, 1],
+                opacity: [0.15, 0.35, 0.15],
               }}
               transition={{
-                duration: 2,
+                duration: 2.5,
                 repeat: Infinity,
                 delay: shape.delay,
                 ease: 'easeInOut',
@@ -73,44 +74,41 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
 
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="relative z-10 flex flex-col items-center"
           >
             {/* Logo */}
             <motion.div
-              className="mb-8"
+              className="mb-8 text-center"
               animate={{
-                scale: [1, 1.05, 1],
-                rotate: [0, 2, -2, 0],
+                scale: [1, 1.02, 1],
               }}
               transition={{
-                duration: 2,
+                duration: 3,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
             >
+              <span className="font-mono text-xs uppercase tracking-widest text-[#1c1c1c66]">STUDIO</span>
               <h1
-                className="text-6xl md:text-8xl font-bold"
+                className="text-4xl md:text-5xl font-bold tracking-tight mt-1"
                 style={{
                   fontFamily: '"Space Grotesk", sans-serif',
-                  background: 'linear-gradient(135deg, #FF6B6B, #9B5DE5, #4ECDC4)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
+                  color: '#1C1C1C',
                 }}
               >
-                Alex
+                HET HUIS.
               </h1>
             </motion.div>
 
             {/* Progress bar */}
-            <div className="w-64 h-2 bg-neutral-200 rounded-full overflow-hidden">
+            <div className="w-56 h-1 bg-[#1c1c1c10] rounded-full overflow-hidden">
               <motion.div
                 className="h-full rounded-full"
                 style={{
-                  background: 'linear-gradient(90deg, #FF6B6B, #9B5DE5, #4ECDC4)',
+                  backgroundColor: '#B25E4B',
                 }}
                 initial={{ width: 0 }}
                 animate={{ width: `${Math.min(progress, 100)}%` }}
@@ -120,21 +118,21 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
 
             {/* Progress text */}
             <motion.p
-              className="mt-4 text-sm text-neutral-500 font-mono"
+              className="mt-3 text-xs text-neutral-500 font-mono"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.2 }}
             >
               {Math.min(Math.round(progress), 100)}%
             </motion.p>
 
             {/* Loading text */}
             <motion.p
-              className="mt-8 text-xs tracking-widest text-neutral-400"
-              animate={{ opacity: [0.5, 1, 0.5] }}
+              className="mt-6 text-[10px] tracking-[0.2em] font-mono text-[#1c1c1c66] uppercase"
+              animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              LOADING CREATIVITY...
+              Constructing calm...
             </motion.p>
           </motion.div>
         </motion.div>
